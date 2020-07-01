@@ -16,6 +16,9 @@ const seedDB = require("./seeds");
 flash = require('connect-flash');
 app.use(flash());
 
+
+app.use(express.static('public'));
+
 const passport = require('passport'), LocalStrategy = require('passport-local');
 const User = require('./models/user');
 
