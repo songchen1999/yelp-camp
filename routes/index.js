@@ -7,6 +7,10 @@ router.get("/",function (req,res) {
     res.render("landing");
 })
 
+router.get('/info',function (req,res) {
+    res.render('info');
+})
+
 router.get('/register',function (req,res) {
     res.render('register');
 })
