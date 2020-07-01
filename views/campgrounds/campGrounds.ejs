@@ -1,0 +1,29 @@
+<%- include('../partials/header'); -%>
+<div class="container">
+<div class="jumbotron">
+<h1 class="display-4">Welcome to Yelp Camps</h1>
+    <p class="lead">View our hand selected camp from all over the world.</p>
+    <a class="btn btn-primary btn-lg" href="/campgrounds/new" role="button">Click to Create a New Camp</a>
+</div>
+<div class = "row text-center" style="display: flex; flex-wrap: wrap">
+    <% for (let i = 0; i< campGrounds.length; i++) {%>
+<div class="col-md-3 col-sm-6">
+        <div class="card" style="">
+            <img src="<%=campGrounds[i]['image']%>">
+
+
+            <div class="card-body">
+                <p class="card-text"><%=campGrounds[i]['name']%></p>
+            </div>
+
+            <a href="/campgrounds/<%=campGrounds[i]['_id']%>" class="btn btn-primary">more info</a>
+
+        </div>
+</div>
+
+<%}%>
+</div>
+
+
+</div>
+<%- include('../partials/footer'); -%>
