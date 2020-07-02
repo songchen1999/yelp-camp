@@ -4,6 +4,9 @@ const express = require('express'),
 router.get('/resume',function (req,res) {
     var path = require('path');
     var file = path.join(__dirname, '../public/pdfs/SongChen_temp.pdf');
+
+    res.sendFile(file);
+    /*
     res.download(file, function (err) {
         if (err) {
             console.log("Error");
@@ -12,6 +15,14 @@ router.get('/resume',function (req,res) {
             console.log("Success");
         }
     });
+    */
+
+})
+
+router.get("/portfolio",function (req,res) {
+    res.send('under construction');
+
+
 })
 
 
