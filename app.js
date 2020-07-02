@@ -25,7 +25,9 @@ const User = require('./models/user');
 const commentRoutes = require("./routes/comments"),
       campgroundRoutes = require('./routes/campgrounds');
 
-const indexRoutes = require('./routes/index');
+const indexRoutes = require('./routes/index'),
+      personalRoutes = require('./routes/personal');
+
 
 app.use(require('express-session')({
     secret: "fuck",
@@ -84,7 +86,7 @@ app.use(function (req,res,next) {
 app.use('/',indexRoutes);
 app.use("/campgrounds",campgroundRoutes);
 app.use('/campgrounds/:id/comments',commentRoutes);
-
+app.use('/',personalRoutes);
 
 app.listen(process.env.PORT||3000, function () {
     console.log("nice game");
