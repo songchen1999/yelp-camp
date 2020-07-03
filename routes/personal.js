@@ -25,5 +25,9 @@ router.get("/portfolio",function (req,res) {
 
 })
 
+router.get("/playground",function (req,res) {
+    res.render('playground');
+})
+
 
 module.exports = router;
