@@ -25,8 +25,11 @@ router.get("/portfolio",function (req,res) {
 
 })
 
-router.get("/playground",function (req,res) {
-    res.render('playground');
+router.get("/schedule",function (req,res) {
+    var path = require('path');
+    var file = path.join(__dirname, '../public/images/SongChen_schedule.png');
+
+    res.sendFile(file);
 })
 
 
