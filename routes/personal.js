@@ -32,5 +32,9 @@ router.get("/schedule",function (req,res) {
     res.sendFile(file);
 })
 
+router.get('/reactplayground',function (req,res) {
+    res.render('personal/reactplayground');
+})
+
 
 module.exports = router;

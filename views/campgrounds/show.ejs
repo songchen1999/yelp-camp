@@ -18,13 +18,13 @@
                     <p><%=result.description%></p>
                     <p>$<%=result.price%> /night</p>
 
-                    <p class="card-text"><small class="text-muted">updated by <em><%=result.author.username%></em> three days ago</small></p>
-                    <%if(currentUser!=undefined){if(result.author.id.equals(currentUser._id)){%>
+                    <p class="card-text"><small class="text-muted">updated by <a href="/users/<%=result.author.id%>"><em><%=result.author.username%></em> </a>three days ago</small></p>
+                    <%if((currentUser!=undefined&&result.author.id.equals(currentUser._id)) || currentUser && currentUser.isAdmin){%>
                     <a href="/campgrounds/<%=result._id%>/edit" class="btn btn-warning">Edit</a>
                     <form style="display: inline" action="/campgrounds/<%=result._id%>?_method=DELETE" method="post">
                         <button class="btn btn-danger">Delete</button>
                     </form>
-                    <%}}%>
+                    <%}%>
                 </div>
             </div>
             <div class="ui comments">
@@ -36,7 +36,7 @@
                         <img src="/images/avatar/small/elliot.jpg">
                     </a>
                     <div class="content">
-                        <a class="author"><%=e.author.username%></a>
+                        <a class="author" ><%=e.author.username%></a>
                         <div class="metadata">
                             <span class="date">Yesterday at 12:30AM</span>
                         </div>
@@ -44,7 +44,7 @@
 
                             <p><%=e.text%></p>
                         </div>
-                        <%if (currentUser!=undefined && e.author.id.equals(currentUser._id)){%>
+                        <%if ((currentUser!=undefined&&result.author.id.equals(currentUser._id)) || currentUser && currentUser.isAdmin){%>
                         <a href="/campgrounds/<%=result._id%>/comments/<%=e._id%>/edit" class="btn btn-xs btn-warning">Edit</a>
                         <form style="display: inline" action="/campgrounds/<%=result._id%>/comments/<%=e._id%>/?_method=DELETE" method="post">
                             <button class="btn btn-danger">Delete</button>
