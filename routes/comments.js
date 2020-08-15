@@ -25,7 +25,16 @@ router.post("/new", middleware.isLoggedin,function (req,res) {
                 // add username and id to comment
                 cock.author.id = req.user._id;
                 cock.author.username = req.user.username;
+                cock.author.avatar = req.user.avatar;
+                let today = new Date();
+                let dd = String(today.getDate()).padStart(2, '0');
+                let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                let yyyy = today.getFullYear();
+
+                today = mm + '/' + dd + '/' + yyyy;
+                cock.date = today;
                 cock.save();
+                console.log(cock);
                 result.comments.push(cock);
                 result.save();
 

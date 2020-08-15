@@ -1,15 +1,31 @@
 const express = require('express'), router = express.Router();
 const middleware = require('../middleware')
 router.get("/",function (req,res) {
+    const noMatch = null;
+    if(req.query.search){
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        // Get all campgrounds from DB
+        Campground.find({name: regex}, function(err, allCampgrounds){
+            if(err){
+                console.log(err);
+            } else {
+                if(allCampgrounds.length < 1) {
+                    noMatch = "No campgrounds match that query, please try again.";
+                }
+                res.render("campgrounds/campGrounds",{campGrounds:allCampgrounds, noMatch: noMatch});
+            }
+        });
+    } else {
+        Campground.find({},function (err, fuck) {
+            if(err){
+                console.log(err);
+            }
+            else {
+                res.render("campgrounds/campGrounds",{campGrounds:fuck, noMatch: noMatch});
+            }
+        })
+    }
 
-    Campground.find({},function (err, fuck) {
-        if(err){
-            console.log(err);
-        }
-        else {
-            res.render("campgrounds/campGrounds",{campGrounds:fuck});
-        }
-    })
 
 
 })
@@ -81,7 +97,9 @@ router.delete("/:id",middleware.checkCampgroundOwnership,function (req,res) {
     })
 })
 
-
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 
 
