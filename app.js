@@ -41,17 +41,13 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds157956.mlab.com:57956/heroku_32fvt1rm",
-    {
-        auth:{user: "Song", password: "Sydney@2000"},
+
+// use your own online db
+mongoose.connect('mongodb://localhost/cats', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
 
-/*mongoose.connect('mongodb://localhost/cats', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});*/
 app.use(bodyParser.urlencoded({ extended: false }))
 
 

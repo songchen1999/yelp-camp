@@ -5,8 +5,7 @@ const passport = require('passport'),
 ;
 const async = require("async");
 const mailgun = require("mailgun-js");
-const DOMAIN = 'mg.songchen.space';
-const mg = mailgun({apiKey: "key-1258e44e2e693213b08775bee241467a", domain: DOMAIN});
+// set up your mailgun by providing domain name and API key
 const crypto  = require("crypto")
 
 router.get("/",function (req,res) {
