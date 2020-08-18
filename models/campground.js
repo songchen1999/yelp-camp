@@ -11,6 +11,7 @@ const campgroundSchema = new mongoose.Schema({
         },
         username: String
     },
+    date: String,
     comments: [{
         type: mongoose.Schema.Types.ObjectID,
         ref: "Comment"

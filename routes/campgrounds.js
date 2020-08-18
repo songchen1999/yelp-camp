@@ -31,7 +31,13 @@ router.get("/",function (req,res) {
 })
 
 router.post("/",middleware.isLoggedin,function (req,res) {
-    let fuck = {name: req.body.name, image: req.body.img, description: req.body.description, price: req.body.price};
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+
+    today = mm + '/' + dd + '/' + yyyy;
+    let fuck = {name: req.body.name, image: req.body.img, description: req.body.description, price: req.body.price, date: today};
     let author = {
         id: req.user._id,
         username: req.user.username

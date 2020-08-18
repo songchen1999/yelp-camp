@@ -18,7 +18,7 @@
                     <p><%=result.description%></p>
                     <p>$<%=result.price%> /night</p>
 
-                    <p class="card-text"><small class="text-muted">updated by <a href="/users/<%=result.author.id%>"><em><%=result.author.username%></em> </a>three days ago</small></p>
+                    <p class="card-text"><small class="text-muted">updated by <a href="/users/<%=result.author.id%>"><em><%=result.author.username%></em> </a>on <%=result.date%></small></p>
                     <%if((currentUser!=undefined&&result.author.id.equals(currentUser._id)) || currentUser && currentUser.isAdmin){%>
                     <a href="/campgrounds/<%=result._id%>/edit" class="btn btn-warning">Edit</a>
                     <form style="display: inline" action="/campgrounds/<%=result._id%>?_method=DELETE" method="post">
