@@ -1,0 +1,20 @@
+<%- include('../partials/yelp/header'); -%>
+<div class="container" style="text-align: center">
+<div class="row">
+    <div class="col-md-4">
+
+        <h1><%=user.firstName+""+user.lastName%></h1>
+        <div class="thumbnail">
+        <img src="<%=user.avatar%>" alt="user profile image">
+            <div class="caption"><a href="mailto:<%=user.email%>"><%=user.email%></a></div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h1><%= user.firstName%>'s camps</h1>
+        <% campgrounds.forEach(function (camp) { %>
+            <li><a href="/campgrounds/<%=camp.id%>"><%= camp.name%></a></li>
+       <% })%>
+    </div>
+</div>
+</div>
+<%- include('../partials/yelp/footer'); -%>

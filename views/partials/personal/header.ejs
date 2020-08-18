@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/comment.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Song Chen</title>
+    <link rel="icon" href="icons/mojo/mojo.png" type="image/png">
+    <style>
+        body {
+            padding-top: 65px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="/info">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav" >
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/resume">Resume <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/schedule">schedule</a>
+                </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.linkedin.com/in/song-chen-a7240011a/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="https://steamcommunity.com/profiles/76561198283931242" class="nav-link"><i class="fa fa-steam-square" aria-hidden="true"></i></a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+</nav>
+
+<div class="container">
+    <%if(error && error.length>0){%>
+    <div class="alert alert-warning" role="alert">
+        <%=error%>
+    </div>
+    <%}%>
+    <%if(success&&success.length>0){%>
+    <div class="alert alert-success" role="alert">
+        <%=success%>
+    </div>
+    <%}%>
+
+</div>
+
+<img src="icons/mojo/mojo.png">

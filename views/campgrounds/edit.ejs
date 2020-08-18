@@ -1,0 +1,24 @@
+<%- include('../partials/yelp/header'); -%>
+<div class="container" style="text-align: center">
+    <h1>Edit <%=result.name%> </h1>
+    <div style="width: 50%; margin: auto">
+        <form action="/campgrounds/<%=result._id%>/?_method=PUT" method="post" >
+            <div class="form-group">
+                <input type="text" class="form-control" value="<%=result.name%>" name = "name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" value="<%=result.image%>"  name = "img">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" value=<%=result.price%>  name = "price">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" value="<%=result.description%>"  name = "description">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+        <a href="/campgrounds">go back</a>
+    </div>
+</div>
+
+<%- include('../partials/yelp/footer'); -%>
