@@ -6,7 +6,7 @@ const passport = require('passport'),
 const async = require("async");
 const mailgun = require("mailgun-js");
 const DOMAIN = 'mg.songchen.space';
-const mg = mailgun({apiKey: "34c000126e4df4efc6497971e1cf8800-07e45e2a-86313c80", domain: DOMAIN});
+const mg = mailgun({apiKey: "key-1258e44e2e693213b08775bee241467a", domain: DOMAIN});
 const crypto  = require("crypto")
 
 router.get("/",function (req,res) {
@@ -104,11 +104,14 @@ router.post('/forgot', function (req,res) {
             };
             mg.messages().send(data, function (error,body) {
                 if(error){
-                    req.flash("error",error);
+                    req.flash("error",error.message);
+                }
+                else {
+                    req.flash('success', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+
                 }
                 console.log("mail sent");
-                req.flash('success', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
-                done(error, 'done');
+                 done(error, 'done');
             })
 
         }

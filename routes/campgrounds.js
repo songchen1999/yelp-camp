@@ -1,7 +1,7 @@
 const express = require('express'), router = express.Router();
 const middleware = require('../middleware')
 router.get("/",function (req,res) {
-    const noMatch = null;
+    let noMatch = null;
     if(req.query.search){
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         // Get all campgrounds from DB
