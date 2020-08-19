@@ -1,7 +1,7 @@
 # Yelp Camp
-## An camp rental site built with Express.js as backend, MongoDB as database, EJS, flash ,Boostrap and Semantic UI libraries as front end.
+## An camp rental site built with Express.js as backend, MongoDB as database, EJS, flash ,Boostrap and Semantic UI libraries, Google Map API as front end.
 * User authorization and authentication are built with passport js
-* Password forgot function are implemented with  token from crypto and email services from mailgn
+* Password forgot function are implemented with token from crypto and email services from mailgn
 * Implemented fuzzy search using regular expression
 * Deployed to Heroku
 
