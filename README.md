@@ -6,6 +6,6 @@
 * Deployed to Heroku
 
 Features:
-- User can comment,  post, and edit or user its post and display its profile, while admin user can access to all comments and posts
+- User can comment,  post with a timestamp, and edit or delete user's post and display user's profile, while admin user can access to all comments and posts
 
 link: http://www.songchen.space/campgrounds
