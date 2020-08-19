@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 var bodyParser = require('body-parser')
 
@@ -44,7 +46,7 @@ passport.deserializeUser(User.deserializeUser());
 
 mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds157956.mlab.com:57956/heroku_32fvt1rm",
     {
-        auth:{user: "Song", password: "Sydney@2000"},
+        auth:{user: process.env.dbUser, password: process.env.dbPassword},
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
