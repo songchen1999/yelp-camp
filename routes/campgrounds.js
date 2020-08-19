@@ -1,5 +1,16 @@
 const express = require('express'), router = express.Router();
 const middleware = require('../middleware')
+const NodeGeocoder = require('node-geocoder');
+
+const options = {
+    provider: 'google',
+    httpAdapter: 'https',
+    apiKey: "AIzaSyC90aYUkO1_oKENEgt8WB6uFoy1MTrq7DM",
+    formatter: null
+};
+
+const geocoder = NodeGeocoder(options)
+
 router.get("/",function (req,res) {
     let noMatch = null;
     if(req.query.search){
@@ -43,14 +54,31 @@ router.post("/",middleware.isLoggedin,function (req,res) {
         username: req.user.username
     }
     fuck.author = author;
-    Campground.create(fuck,function (err,c) {
-        if(err){
+    geocoder.geocode(req.body.location, function (err, data) {
+        if (err || !data.length) {
             console.log(err);
+            req.flash('error', 'Invalid address');
+            return res.redirect('back');
         }
+        else{
+            const lat = data[0].latitude;
+            const lng = data[0].longitude;
+            const location = data[0].formattedAddress;
+            fuck.lat = lat;
+            fuck.lng = lng;
+            fuck.location = location;
+            Campground.create(fuck,function (err,c) {
+                if(err){
+                    console.log(err);
+                }
+                else{
+                }
+            });
 
-    });
+            res.redirect("/campgrounds");
+        }
+    })
 
-    res.redirect("/campgrounds");
 })
 
 router.get("/new",middleware.isLoggedin,function (req,res) {

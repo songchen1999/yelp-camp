@@ -8,6 +8,7 @@
                 <li class="list-group-item">Info 2</li>
                 <li class="list-group-item">Info 3</li>
             </div>
+            <div id="map"></div>
         </div>
         <div class="col-md-9">
             <div class="card mb-3">
@@ -66,7 +67,34 @@
 
 
 
-
+<script>
+    function initMap() {
+        const lat = <%= result.lat %>;
+        const lng = <%= result.lng %>;
+        const center = {lat: lat, lng: lng };
+        const map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: center,
+            scrollwheel: false
+        });
+        const contentString = `
+      <strong><%= result.name %><br />
+      <%= result.location %></strong>
+      <p><%= result.description %></p>
+    `
+        const infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        const marker = new google.maps.Marker({
+            position: center,
+            map: map
+        });
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlWDRn1rD1N1Fy3dK9HYF9vMOqr7_T2u8&callback=initMap"></script>
 
 
 <%- include('../partials/yelp/footer'); -%>

@@ -12,6 +12,9 @@ const campgroundSchema = new mongoose.Schema({
         username: String
     },
     date: String,
+    lat: String,
+    lng: String,
+    location: String,
     comments: [{
         type: mongoose.Schema.Types.ObjectID,
         ref: "Comment"
