@@ -1,4 +1,5 @@
 # Yelp Camp
+deployed link: http://www.songchen.space/campgrounds
 ## A camp rental site built with Express.js as backend, MongoDB as database, EJS, flash ,Boostrap and Semantic UI libraries, Google Map API as front end.
 * Built User authorization and authentication  with Passport js
 * Implemented Password forgot function with token from Crypto and MailGun API
@@ -13,4 +14,4 @@ This is the final project I have completed following Udemy course Web Developer 
 
 I have learnt a lot from this course over the summer. I learnt Git, CSS, HTML, jQuery, DOM, Express JS, MongoDB, and Bootstrap library... And a lot about how to structure and plan the files for a large project. And I got to use those skills in my independent project later.
 
-link: http://www.songchen.space/campgrounds
+
